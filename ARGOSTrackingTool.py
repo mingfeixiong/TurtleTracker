@@ -49,10 +49,19 @@ for lineString in lineStrings:
 print ("Finished")
 
 # Ask user for date
-userDate = '7/3/2003' #input ("Enter a date: (M/D/YYYY)")
+userDate = input ("Enter a date: (M/D/YYYY)")
 
 # Collect keys matching user date
 keyList = []
 for k,v in dateDict.items():
     if v == userDate:
         keyList.append(k)
+        
+#report if no keys are found
+if len(keyList) == 0:
+    print ("No records found for {}".format(userDate))
+else:
+    #show coordinates
+    for key in keyList:
+        theCoordinate = locationDict[key]
+        print ("Turtle founda at {}".format(theCoordinate))
